@@ -6,8 +6,11 @@ import (
 	"math/rand"
 )
 
+/*
+*  函数名首字母必须大写
+ */
 func Hello(name string) (string, error) {
-	if "" == name {
+	if name == "" {
 		return name, errors.New("empty name")
 	}
 	msg := fmt.Sprintf(randomFormat(), name) //format output string with rand value
@@ -36,4 +39,19 @@ func randomFormat() string {
 	n := rand.Intn(len(fmts)) //get rand number
 
 	return fmts[n] //get string by rand index
+}
+
+func WhatAmI(i interface{}) {
+	switch t := i.(type) {
+	case bool:
+		fmt.Println("===>bool")
+	case int:
+		fmt.Println("===>int")
+	default:
+		fmt.Printf("default type is %T\n", t)
+	}
+}
+
+func Test() {
+	fmt.Printf("===>\n")
 }
